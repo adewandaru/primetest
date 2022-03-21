@@ -34,14 +34,14 @@ public class check4Prime {
         double sqroot = Math.sqrt(max); // Find square root of n
 
         // Initialize array to hold prime numbers
-        boolean primeBucket[] = new boolean[max + 1];
+        boolean[] primeBucket = new boolean[max + 1];
 
         // Initialize all elements to true, then set non-primes to false
         for (int i = 2; i <= max; i++) {
             primeBucket[i] = true;
         }
         int j;
-        for (j = 10; j <= sqroot; j = j + 2) { // do up to sqrt of n
+        for (j = 2; j <= sqroot; j++) { // do up to sqrt of n
             if (primeBucket[j] == true) { // only do if j is a prime
                 for (int i = j + j; i <= max; i = i + j) { // start with 2j as j is prime
                     primeBucket[i] = false; // set all multiples to false
