@@ -29,6 +29,7 @@ public class check4Prime {
     }
 
     // Calculates prime numbers and compares it to the input
+    // todo: replace algorityhm with better complexity
     public boolean primeCheck(int num) {
 
         double sqroot = Math.sqrt(max); // Find square root of n
