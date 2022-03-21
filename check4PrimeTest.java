@@ -93,6 +93,19 @@ public class check4PrimeTest extends TestCase {
         }
     } // end testCheck4Prime_checkArgs_0_inputs
 
+    // Test case 8
+    public void testCheck4Prime_checkArgs_decimal_inputs() {
+        try {
+            String[] args = new String[0];
+            args[0] = "1.04";
+            check4prime.checkArgs(args);
+            fail("Should raise an Exception.");
+        } catch (Exception success) {
+            // successful test
+            assertNotNull(success);
+        }
+    } // end testCheck4Prime_checkArgs_0_inputs
+
     // JUnit required method.
     public static TestSuite suite() {
         TestSuite suite = new TestSuite(check4PrimeTest.class);
