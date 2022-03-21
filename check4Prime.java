@@ -34,7 +34,7 @@ public class check4Prime {
         double sqroot = Math.sqrt(max); // Find square root of n
 
         // Initialize array to hold prime numbers
-        boolean primeBucket[] = new boolean[max + 1];
+        boolean[] primeBucket = new boolean[max + 1];
 
         // Initialize all elements to true, then set non-primes to false
         for (int i = 2; i <= max; i++) {
@@ -42,7 +42,7 @@ public class check4Prime {
         }
         int j;
         for (j = 10; j <= sqroot; j = j + 2) { // do up to sqrt of n
-            if (primeBucket[j] == true) { // only do if j is a prime
+            if (primeBucket[j]) { // only do if j is a prime
                 for (int i = j + j; i <= max; i = i + j) { // start with 2j as j is prime
                     primeBucket[i] = false; // set all multiples to false
                 }
@@ -50,11 +50,7 @@ public class check4Prime {
         }
 
         // Check input against prime array
-        if (primeBucket[num] == true) {
-            return true;
-        } else {
-            return false;
-        }
+        return primeBucket[num];
 
     }// end primeCheck()
 
@@ -65,11 +61,10 @@ public class check4Prime {
             throw new Exception();
         } else {
             // Get integer from character
-            Integer num = Integer.valueOf(args[0]);
-            input = num.intValue();
+            input = Integer.parseInt(args[0]);
 
             // If less than zero
-            if (input < 0) // If less than lower bounds
+            if (input < min) // If less than lower bounds
                 throw new Exception();
             else if (input > max) // If greater than upper bounds
                 throw new Exception();
